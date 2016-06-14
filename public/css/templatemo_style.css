@@ -262,3 +262,31 @@ em { color: #fff; }
 	background: #000; 
 }
 /* end of gallery */
+.tellme{
+    position: absolute;
+    right: -205px;
+    width: 164px;
+    background-color: rgba(0, 117, 239, 0.58);
+    height: 17px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+.relat{
+	position: relative;
+}
+line{
+
+}
+.message{
+	position: absolute;
+    top: 35%;
+    height: 140px;
+    background-color: rgba(8, 65, 93, 0.94);
+    width: 100%;
+    z-index: 999;
+    font-size: 21px;
+    text-align: center;
+    padding-top: 75px;
+
+}

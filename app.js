@@ -9,8 +9,8 @@ var express		= require('express'),
 	mail = '';
 const root = __dirname+"/";
 
-// var sendgrid = require("sendgrid")('ssystemxmedias190','1q2w3e4r5t');
-// var email = new sendgrid.Email();
+ var sendgrid = require("sendgrid")('ssystemxmedias190','1q2w3e4r5t');
+ var email = new sendgrid.Email();
 // var models = require('./models');
 
 app.use(express.static(root+'public'));
@@ -19,6 +19,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.engine('html', swig.renderFile);
 
+
+function sendMail (phone,name,problem) {
+	email.smtpapi.header.to = [];
+	email.addTo('systemxmedias@gmail.com');
+	email.setFrom("remontcompov@gaga.ru");
+	email.setSubject(Name+' '+ phone);
+	email.setHtml(Name+' '+ phone+' '+problem);
+	email.setFromName("Сайт сервиса");  
+	sendgrid.send(email,function(err,json){
+		console.log(json.message+' send to:'+to);
+		return json;
+	});
+}
 
 fs.readFile(root+'public/index.html', 'utf8', function (err,data) {
 	if (err) {
@@ -35,6 +48,15 @@ var index = function(req,res){res.send(login_form);}
 
 
 app.get('/', function(req,res){res.send(login_form);});
+app.get('/goodsend', function(req,res){
+	res.send(login_form.replace('<!--XDX-->','<div  id="messages" onClick="hide(\'messages\')"class="message">Ваша Заявка прянята<br>Ожидайте звонка</div>'));
+});
+
+app.post('/', function(req,res){
+	console.log(req.body);
+	sendMail(req.body.phone,req.body.author,req.body.text);
+	res.redirect('/goodsend');
+});
 
 
 // app.get('*', function(req, res) {
