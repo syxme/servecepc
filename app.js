@@ -8,30 +8,34 @@ var express		= require('express'),
 	login_form	= '';
 	mail = '';
 const root = __dirname+"/";
+var nodemailer = require('nodemailer');
 
- var sendgrid = require("sendgrid")('ssystemxmedias190','1q2w3e4r5t');
- var email = new sendgrid.Email();
-// var models = require('./models');
+// create reusable transporter object using the default SMTP transport
+var transporter = nodemailer.createTransport('smtps://djsystem6@mail.ru:XX@smtp.mail.ru');
+transporter.transporter.options.port = 465;
+function sendMail (phone,name,problem) {
+	var mailOptions = {
+	    from: '"Сервис Новый заказ" <djsystem6@mail.ru>', // sender address
+	    to: 'systemxmedias@gmail.com', // list of receivers
+	    subject: name+' '+ phone+'✔', // Subject line
+	    text: name+' '+ phone+' '+problem+' 🐴', // plaintext body
+	    html:  name+' '+ phone+' '+problem+' 🐴' // html body
+	};
+
+	transporter.sendMail(mailOptions, function(error, info){
+	    if(error){
+	        return console.log(error);
+	    }
+	    console.log('Message sent: ' + info.response);
+	});
+}
+
 
 app.use(express.static(root+'public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//app.engine('html', swig.renderFile);
 
-
-function sendMail (phone,name,problem) {
-	email.smtpapi.header.to = [];
-	email.addTo('systemxmedias@gmail.com');
-	email.setFrom("remontcompov@gaga.ru");
-	email.setSubject(name+' '+ phone);
-	email.setHtml(name+' '+ phone+' '+problem);
-	email.setFromName("Сайт сервиса");  
-	sendgrid.send(email,function(err,json){
-		console.log(json.message+' send to:'+to);
-		return json;
-	});
-}
 
 fs.readFile(root+'public/index.html', 'utf8', function (err,data) {
 	if (err) {
