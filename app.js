@@ -24,8 +24,8 @@ function sendMail (phone,name,problem) {
 	email.smtpapi.header.to = [];
 	email.addTo('systemxmedias@gmail.com');
 	email.setFrom("remontcompov@gaga.ru");
-	email.setSubject(Name+' '+ phone);
-	email.setHtml(Name+' '+ phone+' '+problem);
+	email.setSubject(name+' '+ phone);
+	email.setHtml(name+' '+ phone+' '+problem);
 	email.setFromName("Сайт сервиса");  
 	sendgrid.send(email,function(err,json){
 		console.log(json.message+' send to:'+to);
