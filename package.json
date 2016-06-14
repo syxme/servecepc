@@ -1,0 +1,23 @@
+{
+  "name": "servecepc",
+  "version": "1.0.0",
+  "description": "ls",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syxme/servecepc.git"
+  },
+  "author": "Syxme",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/syxme/servecepc/issues"
+  },
+  "dependencies": {
+    "express": "~4.13.4",
+    "async": "~2.0.0-rc.6",
+    "body-parser": "~1.15.1"
+  }
+}
