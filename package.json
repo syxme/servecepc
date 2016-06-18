@@ -20,6 +20,7 @@
     "async": "~2.0.0-rc.6",
     "body-parser": "~1.15.1",
     "sendgrid": "1.9.0",
-    "nodemailer": "~2.4.2"
+    "nodemailer": "~2.4.2",
+    "express-handlebars": "~3.0.0"
   }
 }
