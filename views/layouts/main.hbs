@@ -9,7 +9,9 @@
 	<link rel="icon" href="http://www.linux.org.ru/favicon.ico" type="image/x-icon">
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> 
 	<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
-
+	<script type="text/javascript" src="/js/jquery-1.2.6.js"></script>
+	<script type="text/javascript" src="/js/left.js"></script>
+	<script type="text/javascript" src="/js/jquery.maskedinput.min.js"></script>
 	<style type="text/css">
 		img.wp-smiley,
 		img.emoji {
@@ -30,6 +32,18 @@
 	</style>
 </head>
 <body class="home blog">
+	
+	<div class="block-box"></div>
+	<div class="call-box">
+		<span class="title">Звони! Узнай точную цену!</span>
+		<span class="phone">+7 (985) 401-47-14</span>
+		<span class="title">Или оставьте свой номер и мы вам перезвоним!</span>
+		<form action="/sendact" method="post" novalidate="novalidate">
+			<input type="text" id="phone" name="your-tel" value="" size="40" class="form-send inputcall" aria-required="true" aria-invalid="false" />
+			<input type="submit" value="Отправить" class="wpcf7-form-control wpcf7-submit form-send" />
+		</form>
+	</div>
+	
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -39,7 +53,8 @@
 		ga('create', 'UA-79491876-1', 'auto');
 		ga('send', 'pageview');
 	</script>
-	<!-- Yandex.Metrika counter -->
+
+
 	<script type="text/javascript">
 		(function (d, w, c) {
 			(w[c] = w[c] || []).push(function() {
@@ -66,7 +81,8 @@
 		})(document, window, "yandex_metrika_callbacks");
 	</script>
 	<noscript><div><img src="https://mc.yandex.ru/watch/37980165" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-	<!-- /Yandex.Metrika counter -->
+
+
 
 	<div class="bg-top">
 		<header id="header">
@@ -129,7 +145,7 @@
 							</p>
 							<p>Телефон (обязательно)<br />
 								<span class="wpcf7-form-control-wrap your-tel">
-									<input type="text" name="your-tel" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" />
+									<input type="text" id="phonee" name="your-tel" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" />
 								</span>
 							</p>
 							<p>Удобное время звонка<br />
