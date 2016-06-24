@@ -53,6 +53,7 @@ function showBlock() {
 }
 
 function hideBlock() {
+	$.post('/notcall');
 	$('.papirus-box').css('display','none');
 	$('.block-box').css('display','none');
 	$('.call-box').css('display','none');

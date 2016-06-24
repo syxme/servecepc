@@ -49,6 +49,10 @@ app.post('/sendact', function(req,res){
 	res.redirect('/');
 });
 
+app.post('/notcall', function(req,res){
+	sendMail('Отказ','((','((');
+	res.send(':(');
+});
 
 
 

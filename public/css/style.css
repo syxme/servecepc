@@ -4169,28 +4169,29 @@ table > tbody > tr>td:nth-child(2){
 	font-size: 17px;
 }
 .papirus-box{
-	display: none;
-    width: 500px;
-    background: url(../images/papir.png) no-repeat;
-    height: 330px;
-    background-size: 100%;
+    display: none;
+    width: 349px;
+    background: url(../images/papir.png);
+    height: 430px;
+    background-size: 370px;
     position: fixed;
-    left: 15%;
+    left: 25%;
     margin: -125px 0 0 -240px;
     z-index: 1000;
-    top: 35%;
+    top: 25%;
     padding: 10px;
+    background-position: 0px 0px;
 }
 
 
 .papirus-box > .textx{
-	margin: 53px 0px 8px 66px;
+    margin: 30px 0px 8px 9px;
     display: block;
-    font-size: 20px;
+    font-size: 23px;
     font-style: italic;
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-    text-shadow: 1px 2px 7px #000;
+    color: rgb(53, 53, 53);
+    text-shadow: 1px 1px 1px;
     text-indent: 37px;
-}
+    font-family: cursive;
+    line-height: 26px;
 }
