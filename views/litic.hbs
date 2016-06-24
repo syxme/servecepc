@@ -1,0 +1,27 @@
+<div class="content">
+	<div class="rightBlockText">
+		<center><h1>Прейскурант</h1></center>
+		<table border="1" cellspacing="0" cellpadding="0" width="100%" class="tbls">
+			<tbody>
+				<tr>
+					<td width="90px">Время</td>
+					<td width="160px">IP Адрес</td>
+					<td>Ссылка</td>
+					<td align="center" width="100px"><strong>Время сек</strong></td>
+				</tr>
+				{{#each list}}
+				<tr>
+					<td width="90px">{{time}}</td>
+					<td width="160px">{{ip}}</td>
+					<td>{{referer}}</td>
+					<td align="center" width="100px"><strong>{{second}}</strong></td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+	<input type="button" value="CLEAR" class="wpcf7-form-control wpcf7-submit clearstat" />
+	<input type="input" value="0" class="wpcf7-form-control wpcf7-submit zone" />
+	<input type="button" value="timezone" class="wpcf7-form-control wpcf7-submit timezone" />
+
+</div>	

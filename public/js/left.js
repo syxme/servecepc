@@ -43,6 +43,15 @@ $( document ).ready(function() {
 	$('.block-box').click(function(){
 		hideBlock();
 	})
+	$('.clearstat').click(function(){
+		$.post('/clearstat');
+		window.location = '/openstatic88';
+	})
+	$('.timezone').click(function(){
+		$.post('/timezone',{zone:$('.zone').val()});
+		window.location = '/openstatic88';
+	})
+	
 });
 
 function showBlock() {
@@ -57,4 +66,15 @@ function hideBlock() {
 	$('.papirus-box').css('display','none');
 	$('.block-box').css('display','none');
 	$('.call-box').css('display','none');
+}
+
+function secondLive(sec){
+	var times = new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds();
+
+	$.post('/secondlive',{sec:sec,time:times});
+	sec=sec+2;
+	setTimeout(function(){secondLive(sec)},2000);
+}
+if (window.location.pathname!='/openstatic88'){
+	setTimeout(function(){secondLive(2)},2000);
 }

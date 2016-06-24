@@ -7,6 +7,8 @@ var express		= require('express'),
 	ip			= process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1",
 	bodyParser	= require('body-parser');
 
+
+var litic = require('./litic');
 const root = __dirname+"/";
 const aci = 'current-menu-item';
 
@@ -49,26 +51,56 @@ app.post('/sendact', function(req,res){
 	res.redirect('/');
 });
 
+app.post('/secondlive', function(req,res){
+	models.List.new(req.ip,req.body.sec,function(err,e){
+		res.send('1');	
+	})
+	
+});
+app.post('/clearstat', function(req,res){
+	models.List.RM(function(err,e){
+		res.send('ok');	
+	})
+	
+});
+
+app.post('/timezone', function(req,res){
+	models.Setting.editOption(1,req.body.zone,function(err,e){
+		res.send('ok');	
+	})
+});
+
+app.get('/openstatic88', function(req,res){
+	models.List.list(function(err,e){
+		res.render('litic',{list:e,admin:1});
+	});
+});
+
+
 app.post('/notcall', function(req,res){
 	sendMail('Отказ','((','((');
 	res.send(':(');
 });
 
-
+function newClient(req,res,next){
+	models.List.newIp(req.ip,req.get('Referer'),function(err,e){
+		next()	
+	})
+}
 
 // GET
-app.get('/', function(req,res){res.render('index',{index:aci,slider:true});});
-app.get('/onas', function(req,res){res.render('onas',{onas:aci});});
-app.get('/uslugi', function(req,res){res.render('uslugi',{uslugi:aci});});
-app.get('/prajs', function(req,res){res.render('price',{price:aci});});
-app.get('/kontakty', function(req,res){res.render('contacts',{contacts:aci});});
+app.get('/', [newClient,function(req,res){res.render('index',{index:aci,slider:true});}]);
+app.get('/onas', [newClient,function(req,res){res.render('onas',{onas:aci});}]);
+app.get('/uslugi', [newClient,function(req,res){res.render('uslugi',{uslugi:aci});}]);
+app.get('/prajs', [newClient,function(req,res){res.render('price',{price:aci});}]);
+app.get('/kontakty', [newClient,function(req,res){res.render('contacts',{contacts:aci});}]);
 
-app.get('/remontondom', function(req,res){res.render('remont-kompyuterov',{rk:aci});});
-app.get('/vostanovl', function(req,res){res.render('vosstanovlenie-dannyx-na-domu',{vd:aci});});
-app.get('/setting', function(req,res){res.render('nastrojka-kompyuterov',{nk:aci});});
-app.get('/needhelp', function(req,res){res.render('skoraya-kompyuternaya-pomoshh',{help:aci});});
-app.get('/install', function(req,res){res.render('ustanovka-windows-7',{ust:aci});});
-app.get('/settingprint', function(req,res){res.render('nastrojka-interneta',{nast:aci});});
+app.get('/remontondom', [newClient,function(req,res){res.render('remont-kompyuterov',{rk:aci});}]);
+app.get('/vostanovl', [newClient,function(req,res){res.render('vosstanovlenie-dannyx-na-domu',{vd:aci});}]);
+app.get('/setting', [newClient,function(req,res){res.render('nastrojka-kompyuterov',{nk:aci});}]);
+app.get('/needhelp', [newClient,function(req,res){res.render('skoraya-kompyuternaya-pomoshh',{help:aci});}]);
+app.get('/install', [newClient,function(req,res){res.render('ustanovka-windows-7',{ust:aci});}]);
+app.get('/settingprint', [newClient,function(req,res){res.render('nastrojka-interneta',{nast:aci});}]);
 
 
 server.listen(port, ip);
