@@ -33,8 +33,8 @@ function getCookie(name) {
 }
 
 $( document ).ready(function() {
-	$('#phone').mask('+7 (999) 999-99-99');
-	$('#phonee').mask('+7 (999) 999-99-99');
+	//$('#phone').mask('+7 (999) 999-99-99');
+	//$('#phonee').mask('+7 (999) 999-99-99');
 
 	if (getCookie('boxc')==undefined){
 		setTimeout('showBlock()',15000);
