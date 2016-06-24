@@ -41,6 +41,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/sendact', function(req,res){
 	console.log(req.body);
+	if (req.body['your-name']==undefined&&req.body['your-time']==undefined){
+		req.body['your-name'] = 'Заказ из быстой карты';
+		req.body['your-time'] = '--';
+	}
 	sendMail(req.body['your-tel'],req.body['your-name'],req.body['your-time']);
 	res.redirect('/');
 });
