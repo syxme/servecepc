@@ -39,6 +39,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+var seo = require('./seorandom')(app);
 
 
 app.post('/sendact', function(req,res){
@@ -89,18 +90,18 @@ function newClient(req,res,next){
 }
 
 // GET
-app.get('/', [newClient,function(req,res){res.render('index',{index:aci,slider:true});}]);
-app.get('/onas', [newClient,function(req,res){res.render('onas',{onas:aci});}]);
-app.get('/uslugi', [newClient,function(req,res){res.render('uslugi',{uslugi:aci});}]);
-app.get('/prajs', [newClient,function(req,res){res.render('price',{price:aci});}]);
-app.get('/kontakty', [newClient,function(req,res){res.render('contacts',{contacts:aci});}]);
+app.get('/', [newClient,function(req,res){res.render('index',{title:'Ремонт компьютеров',index:aci,slider:true});}]);
+app.get('/onas', [newClient,function(req,res){res.render('onas',{title:'О нас',onas:aci});}]);
+app.get('/uslugi', [newClient,function(req,res){res.render('uslugi',{title:'Услуги',uslugi:aci});}]);
+app.get('/prajs', [newClient,function(req,res){res.render('price',{title:'Самые лучшие цены',description:'Самые низкие цены в москве!!!',price:aci});}]);
+app.get('/kontakty', [newClient,function(req,res){res.render('contacts',{title:'Связь с нами',contacts:aci});}]);
 
-app.get('/remontondom', [newClient,function(req,res){res.render('remont-kompyuterov',{rk:aci});}]);
-app.get('/vostanovl', [newClient,function(req,res){res.render('vosstanovlenie-dannyx-na-domu',{vd:aci});}]);
-app.get('/setting', [newClient,function(req,res){res.render('nastrojka-kompyuterov',{nk:aci});}]);
-app.get('/needhelp', [newClient,function(req,res){res.render('skoraya-kompyuternaya-pomoshh',{help:aci});}]);
-app.get('/install', [newClient,function(req,res){res.render('ustanovka-windows-7',{ust:aci});}]);
-app.get('/settingprint', [newClient,function(req,res){res.render('nastrojka-interneta',{nast:aci});}]);
+app.get('/remontondom', [newClient,function(req,res){res.render('remont-kompyuterov',{title:'Ремонт',rk:aci});}]);
+app.get('/vostanovl', [newClient,function(req,res){res.render('vosstanovlenie-dannyx-na-domu',{title:'Вызов на дом',vd:aci});}]);
+app.get('/setting', [newClient,function(req,res){res.render('nastrojka-kompyuterov',{title:'Настойка оборудования',nk:aci});}]);
+app.get('/needhelp', [newClient,function(req,res){res.render('skoraya-kompyuternaya-pomoshh',{title:'Скорая компьютерная помощь',help:aci});}]);
+app.get('/install', [newClient,function(req,res){res.render('ustanovka-windows-7',{title:'Установка Windows',ust:aci});}]);
+app.get('/settingprint', [newClient,function(req,res){res.render('nastrojka-interneta',{title:'Настройка интернета',nast:aci});}]);
 
 
 server.listen(port, ip);
