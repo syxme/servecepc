@@ -3982,7 +3982,7 @@ background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(18,130,2
 background: -webkit-linear-gradient(top, rgba(18,130,200,1) 0%, rgba(46,160,217,1) 100%);
 background: -o-linear-gradient(top, rgba(18,130,200,1) 0%, rgba(46,160,217,1) 100%);
 background: -ms-linear-gradient(top, rgba(18,130,200,1) 0%, rgba(46,160,217,1) 100%);
-background: linear-gradient(to bottom, rgb(29, 29, 29) 0%, rgb(14, 14, 14) 100%);
+background: linear-gradient(to bottom, rgba(18,130,200,1) 0%, rgba(46,160,217,1) 100%);;
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1282c8', endColorstr='#2ea0d9', GradientType=0 );
 }
 .sf-menu > li:last-child {
@@ -4002,7 +4002,7 @@ nav.primary {
 	background: -webkit-linear-gradient(top, rgba(71,152,214,1) 0%, rgba(40,154,216,1) 100%);
 	background: -o-linear-gradient(top, rgba(71,152,214,1) 0%, rgba(40,154,216,1) 100%);
 	background: -ms-linear-gradient(top, rgba(71,152,214,1) 0%, rgba(40,154,216,1) 100%);
-	background:  linear-gradient(to bottom, rgb(32, 39, 34) 0%, rgb(0, 0, 0) 100%);
+	background: linear-gradient(to bottom, rgb(7, 8, 7) 0%, rgb(14, 50, 70) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4798d6', endColorstr='#289ad8', GradientType=0 );
 }
 #header {
