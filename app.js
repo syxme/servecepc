@@ -10,7 +10,7 @@ var express		= require('express'),
 
 var litic = require('./litic');
 const root = __dirname+"/";
-const aci = 'current-menu-item';
+const aci = 'active';
 
 var transporter = nodemailer.createTransport('smtps://djsystem6@mail.ru:wBiKy2Deee@smtp.mail.ru');
 transporter.transporter.options.port = 465;
@@ -84,6 +84,7 @@ app.post('/notcall', function(req,res){
 });
 
 function newClient(req,res,next){
+	console.log(req.ip);
 	models.List.newIp(req.ip,req.get('Referer'),function(err,e){
 		next()	
 	})

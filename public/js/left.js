@@ -37,7 +37,7 @@ $( document ).ready(function() {
 	//$('#phonee').mask('+7 (999) 999-99-99');
 
 	if (getCookie('boxc')==undefined){
-		setTimeout('showBlock()',10000);
+		setTimeout('showBlock()',12000);
 	}
 
 	$('.block-box').click(function(){

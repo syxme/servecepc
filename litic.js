@@ -42,7 +42,7 @@ list.statics.RM = function(cb){
 	});
 }
 list.statics.new = function(ip,sec,cb){
-	this.update({ip:ip},{second:sec},{upsert:true}, function(err, list) {
+	this.update({ip:ip},{second:sec}, function(err, list) {
 		cb(err,list);		
 	});
 }
@@ -55,9 +55,9 @@ list.statics.newIp = function(ip,referer,cb){
 		if (resp){
 			cb(null,false);	
 		}else{
-			models.List.update({ip:ip},{referer:referer,time:date},{upsert:true}, function(err, list) {
+			models.List.create({ip:ip,referer:referer,time:date});
 				cb(null,false);	
-			});
+
 		}
 	});	
 }

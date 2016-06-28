@@ -4109,10 +4109,15 @@ table > tbody > tr>td:nth-child(2){
 	font-weight: bold;
 }
 .inputcall{
-	background-color: #101010!important;
-	border: 1px solid #333!important;
-	color: #3193FF;
-	font-size: 17px;
+background-color: #101010!important;
+    border: 1px solid #333!important;
+    color: #3193FF;
+    font-size: 17px;
+    color: #3BC8D2!important;
+    width: 190px!important;
+    font-size: 20px!important;
+    letter-spacing: 1.6px;
+    text-align: center;
 }
 .shadow-box{
 	box-shadow: 0px 0px 12px -3px;
