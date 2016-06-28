@@ -91,7 +91,7 @@ function newClient(req,res,next){
 }
 
 // GET
-app.get('/', [newClient,function(req,res){res.render('index',{title:'Ремонт компьютеров',index:aci,slider:true});}]);
+app.get('/', [newClient,function(req,res){res.render('index',{title:'Ремонт компьютеров',description:'Частный мастер!Самые низкие цены в москве',index:aci,slider:true});}]);
 app.get('/onas', [newClient,function(req,res){res.render('onas',{title:'О нас',onas:aci});}]);
 app.get('/uslugi', [newClient,function(req,res){res.render('uslugi',{title:'Услуги',uslugi:aci});}]);
 app.get('/prajs', [newClient,function(req,res){res.render('price',{title:'Самые лучшие цены',description:'Самые низкие цены в москве!!!',price:aci});}]);
