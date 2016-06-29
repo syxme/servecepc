@@ -53,7 +53,7 @@ app.post('/sendact', function(req,res){
 });
 
 app.post('/secondlive', function(req,res){
-	models.List.new(req.ip,req.body.sec,function(err,e){
+	models.List.new(req.headers['x-forwarded-for'] || req.connection.remoteAddress,req.body.sec,function(err,e){
 		res.send('1');	
 	})
 	
@@ -79,13 +79,16 @@ app.get('/openstatic88', function(req,res){
 
 
 app.post('/notcall', function(req,res){
-	sendMail('Отказ','((','((');
+	var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
+	sendMail('Отказ',ip,'((');
 	res.send(':(');
 });
 
 function newClient(req,res,next){
-	console.log(req.ip);
-	models.List.newIp(req.ip,req.get('Referer'),function(err,e){
+	var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+	console.log(ip);
+	models.List.newIp(ip,req.get('Referer'),function(err,e){
 		next()	
 	})
 }

@@ -55,13 +55,14 @@ $( document ).ready(function() {
 });
 
 function showBlock() {
-	setCookie('boxc','1',{expires:300})
+	setCookie('boxc','1',{expires:700})
 	$('.block-box').css('display','block');
 	$('.papirus-box').css('display','block');
 	$('.call-box').css('display','block');
 }
 
 function hideBlock() {
+	setCookie('boxc','1',{expires:700})
 	$.post('/notcall');
 	$('.papirus-box').css('display','none');
 	$('.block-box').css('display','none');
