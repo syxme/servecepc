@@ -483,3 +483,9 @@ table{
     margin: auto!important;
     margin-bottom: 15px!important;
 }
+.tdxe {
+    max-width: 380px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
