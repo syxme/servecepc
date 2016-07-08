@@ -9,6 +9,7 @@ list = new Schema({
 	ip:String,
 	second:String,
 	time:String,
+	linc:String,
 	referer:String
 });
 setting = new Schema({
@@ -33,7 +34,7 @@ setting.statics.zone = function(cb){
 list.statics.list = function(cb){
 	this.find({}, function(err, list) {
 		cb(err,list);		
-	});
+	}).sort({ time : 1 });
 }
 
 list.statics.RM = function(cb){
@@ -47,7 +48,7 @@ list.statics.new = function(ip,sec,cb){
 	});
 }
 
-list.statics.newIp = function(ip,referer,cb){
+list.statics.newIp = function(ip,referer,linc,cb){
 	var date = new Date(new Date().getTime()-(timeZone*(60*60*1000)));
 	date = new Date(date).getHours()+':'+new Date(date).getMinutes()+':'+new Date(date).getSeconds();
 
@@ -55,7 +56,7 @@ list.statics.newIp = function(ip,referer,cb){
 		if (resp){
 			cb(null,false);	
 		}else{
-			models.List.create({ip:ip,referer:referer,time:date});
+			models.List.create({ip:ip,referer:referer,linc:linc,time:date});
 				cb(null,false);	
 
 		}

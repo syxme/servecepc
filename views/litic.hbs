@@ -6,6 +6,7 @@
 				<tr>
 					<td width="90px">Время</td>
 					<td width="160px">IP Адрес</td>
+					<td width="160px">Цель</td>
 					<td width="380px" class="tdxe">Ссылка</td>
 					<td align="center" width="100px"><strong>Время сек</strong></td>
 				</tr>
@@ -13,7 +14,8 @@
 				<tr>
 					<td width="90px">{{time}}</td>
 					<td width="160px">{{ip}}</td>
-					<td width="380px" class="tdxe">{{referer}}</td>
+					<td width="160px">{{linc}}</td>
+					<td width="380px" class="tdxe"><a href="{{referer}}">{{referer}}</a></td>
 					<td align="center" width="100px"><strong>{{second}}</strong></td>
 				</tr>
 				{{/each}}
@@ -25,3 +27,8 @@
 	<input type="button" value="timezone" class="wpcf7-form-control wpcf7-submit timezone" />
 
 </div>	
+<style type="text/css">
+	.main {
+		width: 100%!important;
+	}
+</style>

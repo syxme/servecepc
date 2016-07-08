@@ -37,7 +37,7 @@ $( document ).ready(function() {
 	//$('#phonee').mask('+7 (999) 999-99-99');
 
 	if (getCookie('boxc')==undefined){
-		setTimeout('showBlock()',12000);
+		setTimeout('showBlock()',15000);
 	}
 
 	$('.block-box').click(function(){
@@ -55,14 +55,14 @@ $( document ).ready(function() {
 });
 
 function showBlock() {
-	setCookie('boxc','1',{expires:700})
+	setCookie('boxc','1',{expires:5700})
 	$('.block-box').css('display','block');
 	$('.papirus-box').css('display','block');
 	$('.call-box').css('display','block');
 }
 
 function hideBlock() {
-	setCookie('boxc','1',{expires:700})
+	setCookie('boxc','1',{expires:5700})
 	$.post('/notcall');
 	$('.papirus-box').css('display','none');
 	$('.block-box').css('display','none');

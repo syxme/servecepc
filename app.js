@@ -87,8 +87,8 @@ app.post('/notcall', function(req,res){
 
 function newClient(req,res,next){
 	var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-	console.log(ip);
-	models.List.newIp(ip,req.get('Referer'),function(err,e){
+	console.log(req.path);
+	models.List.newIp(ip,req.get('Referer'),req.path,function(err,e){
 		next()	
 	})
 }

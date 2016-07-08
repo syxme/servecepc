@@ -35,7 +35,13 @@ function translit(text){
 	return result;               
 
 }
-
+function newClient(req,res,next){
+	var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+	console.log(req.path);
+	models.List.newIp(ip,req.get('Referer'),req.path,function(err,e){
+		next()	
+	})
+}
 
 module.exports = function(app){
 
@@ -57,7 +63,7 @@ module.exports = function(app){
 
 		var id = '';
 		for (var i = Object.keys(list).length - 1; i >= 0; i--) {
-			app.get('/'+Object.keys(list)[i], [function(req,res){
+			app.get('/'+Object.keys(list)[i], [newClient,function(req,res){
 				id = req.route.path.substr(1);
 				res.render('random',{title:list[id],keywords:list[id],description:list[id]});
 
