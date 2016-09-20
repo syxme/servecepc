@@ -36,13 +36,13 @@ $( document ).ready(function() {
 	//$('#phone').mask('+7 (999) 999-99-99');
 	//$('#phonee').mask('+7 (999) 999-99-99');
 
-	if (getCookie('boxc')==undefined){
-		setTimeout('showBlock()',15000);
-	}
+	// if (getCookie('boxc')==undefined){
+	// 	setTimeout('showBlock()',15000);
+	// }
 
-	$('.block-box').click(function(){
-		hideBlock();
-	})
+	// $('.block-box').click(function(){
+	// 	hideBlock();
+	// })
 	$('.clearstat').click(function(){
 		$.post('/clearstat');
 		window.location = '/openstatic88';
